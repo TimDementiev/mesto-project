@@ -3,4 +3,5 @@
   min-height: min-content;
   display: grid;
   color: #FFFFFF;
+  grid-template-columns: fit-content 1fr 24px;
 }
