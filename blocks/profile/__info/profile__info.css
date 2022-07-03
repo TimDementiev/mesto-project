@@ -1,0 +1,6 @@
+.profile__info {
+  min-height: 73px;
+  min-height: min-content;
+  display: grid;
+  color: #FFFFFF;
+}
