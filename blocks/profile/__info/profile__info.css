@@ -1,7 +1,7 @@
 .profile__info {
   min-height: 73px;
   min-height: min-content;
-  display: grid;
   color: #FFFFFF;
-  grid-template-columns: fit-content 1fr 24px;
+  display: grid;
+  grid-template-columns: fit-content 1fr 26px;
 }
