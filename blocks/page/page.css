@@ -24,10 +24,10 @@
 @media screen and (max-width: 767px) {
   .page {
     max-width: 320px;
-    padding: 28px 0 48px;
+    padding: 28px 0 36px;
   }
 }
 
 * {
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }

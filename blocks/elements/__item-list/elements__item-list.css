@@ -8,3 +8,21 @@
   gap: 20px 17px;
 
 }
+
+@media screen and (max-width: 1279px) {
+  .page {
+
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .page {
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}

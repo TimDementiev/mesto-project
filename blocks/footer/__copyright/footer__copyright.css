@@ -6,13 +6,16 @@
   padding: 0;
   text-decoration: none;
   transition: opacity 0.2s ease-out;
+  cursor: pointer;
 }
 
 .footer__copyright:hover {
   opacity: 0.8;
 }
 
-
 @media screen and (max-width: 767px) {
-  .footer__copyright {}
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

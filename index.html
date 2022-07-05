@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -72,11 +72,16 @@
         </li>
       </ul>
     </section>
-    <div class="popup">
-      <div class="form">
-        <h2 class="form__heading">Редактировать профиль</h2>
-        <form class="form__elements" name="profile">
+    <!-- POPUP -->
+    <div class="popup "> <!-- popup_opened -->
+      <div class="popup__container">
+        <form class="form" name="profile">
+          <h2 class="form__heading">Редактировать профиль</h2>
+          <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя" value="Жак-Ив Кусто">
+          <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе" value="Исследователь океана">
+          <input type="submit" class="form__button-save" value="Сохранить">
         </form>
+        <button type="submit" class="popup__button-close">
       </div>
     </div>
   </main>

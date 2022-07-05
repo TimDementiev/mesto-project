@@ -7,6 +7,8 @@
   max-width: fit-content;
   transition: opacity 0.2s ease-out;
   background: url(../../../images/Header-Logo.svg);
+  background-size: cover;
+  cursor: pointer;
 }
 
 .header__logo:hover {
@@ -23,8 +25,8 @@
 
 @media screen and (max-width: 767px) {
   .header__logo {
+    margin: 0 0 0 27px;
     min-height: 24px;
     min-width: 104px;
-    background-size: cover;
   }
 }
