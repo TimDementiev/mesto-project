@@ -1,10 +1,11 @@
 .profile__info {
-  min-height: min-content;
   color: #FFFFFF;
   display: grid;
   grid-template-columns: minmax(294px, max-content) minmax(10px, 1fr) 24px;
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repaet (2, auto);
   align-items: baseline;
+  /* text-overflow:ellipsis; */
+  /* overflow: hidden; */
 }
 
 @media screen and (max-width: 1023px) {

@@ -10,7 +10,7 @@
   transition: opacity .4s;
   background: #000000;
   color: white;
-
+  border-radius: 2px;
 }
 
 .form__button-save:hover {

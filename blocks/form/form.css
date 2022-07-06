@@ -1,17 +1,8 @@
 .form {
   position: relative;
-  -moz-top: 0%;
-  -moz-left: 0%;
-  -o-top: 0%;
-  -o-left: 0%;
-  -moz-transform: translate(-50%, -196px);
-  -o-transform: translate(-50%, -196px);
-  -moz-background: red ;
-
-
-  top: 50%;
+  top: 195px;
   left: 50%;
-  transform: translate(-50%, -196px);
+  transform: translate(-50%, 0);
   background: #FFFFFF;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -21,14 +12,9 @@
 
 @media screen and (max-width: 767px) {
   .form {
+    top: 123px;
     width: 282px;
     padding: 26px 0 25px;
-    -moz-top: 0%;
-    -moz-left: 0%;
-    -o-top: 0%;
-    -o-left: 0%;
-    -moz-transform: translate(-50%, -168px);
-    -o-transform: translate(-50%, -168px);
-    transform: translate(-50%, -268px);
+    transform: translate(-50%,0);
   }
 }

@@ -1,10 +1,9 @@
 .profile {
-  padding: 39px 0 0;
+  padding: 40px 0 0;
   margin: auto;
   max-width: calc(100% - 400px);
-  min-height: 120px;
   display: grid;
-  grid-template-columns: 150px minmax(336px, max-content) minmax(10px, 1fr) 150px;
+  grid-template-columns: 150px minmax(336px, max-content) minmax(20px, 1fr) 150px;
   align-items: center;
   box-sizing: content-box;
 }
