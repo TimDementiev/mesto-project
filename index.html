@@ -5,19 +5,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/Index.css" />
-  <link rel="shortcut icon" href="images/shortcut-icon.png" />
+  <link rel="stylesheet" href="pages/index.css" />
+  <link rel="shortcut icon" href="images/profile-image.png" />
   <title>Mesto</title>
 </head>
 
 <body class="page">
+  <!-- HEADER -->
   <header class="header">
     <a href="#" class="header__logo"></a>
   </header>
   <main>
     <!-- PROFILE -->
     <section class="profile">
-      <img src="images/profile-image.png" alt="Фото автора профиля" class="profile__image">
+      <img src="images/profile-image.png" alt="Аватар владельца аккаунта" class="profile__image">
       <div class="profile__info">
         <h2 class="profile__name">Жак-Ив Кусто</h2>
         <button class="profile__edit-button"></button>
@@ -29,62 +30,65 @@
     <section class="elements">
       <ul class="elements__item-list">
         <li class="elements__item">
-          <img src="images/karachaevsk.png" alt="" class="elements__image">
+          <img src="images/Elton.jpg" alt="Фотография с видом на Озеро Эльтон" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Карачаевск</h2>
+            <h2 class="elements__place">Озеро Эльтон</h2>
             <button class="elements__like"></button>
           </div>
         </li>
         <li class="elements__item">
-          <img src="images/elbrus.png" alt="" class="elements__image">
+          <img src="images/Geyser.jpg" alt="Фотография с видом на долину Гейзеров" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Гора Эльбрус</h2>
+            <h2 class="elements__place">Долина Гейзеров</h2>
             <button class="elements__like"></button>
           </div>
         </li>
         <li class="elements__item">
-          <img src="images/dombai.png" alt="" class="elements__image">
+          <img src="images/Krenitsina.jpg" alt="Фотография с видом на Вулкан Креницына" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Домбай</h2>
+            <h2 class="elements__place">Вулкан Креницына</h2>
             <button class="elements__like"></button>
           </div>
         </li>
         <li class="elements__item">
-          <img src="images/elbrus.png" alt="" class="elements__image">
+          <img src="images/Putorana.jpg" alt="Фотография с видом на Плато Путорана" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Гора Эльбрус</h2>
+            <h2 class="elements__place">Плато Путорана</h2>
             <button class="elements__like"></button>
           </div>
         </li>
         <li class="elements__item">
-          <img src="images/dombai.png" alt="" class="elements__image">
+          <img src="images/Kesenoy.jpg" alt="Фотография с видом на Озеро Кезеной" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Домбай</h2>
+            <h2 class="elements__place">Озеро Кезеной</h2>
             <button class="elements__like"></button>
           </div>
         </li>
         <li class="elements__item">
-          <img src="images/karachaevsk.png" alt="" class="elements__image">
+          <img src="images/Chara.jpg" alt="Фотография с видом на Чарские пески" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Карачаево-Черкессия</h2>
+            <h2 class="elements__place">Чарские пески</h2>
             <button class="elements__like"></button>
           </div>
         </li>
       </ul>
     </section>
     <!-- POPUP -->
-    <div class="popup "> <!-- popup_opened -->
+    <div class="popup popup_opened">  <!-- to remove/add a pop-up, please remove/add a modifier " popup_opened " -->
       <div class="popup__container">
         <form class="form" name="profile">
           <h2 class="form__heading">Редактировать профиль</h2>
-          <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя" value="Жак-Ив Кусто">
-          <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе" value="Исследователь океана">
+          <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя"
+            value="Жак-Ив Кусто">
+          <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе"
+            value="Исследователь океана">
           <input type="submit" class="form__button-save" value="Сохранить">
         </form>
-        <button type="submit" class="popup__button-close">
+        <button type="submit" class="popup__button-close"></button>
       </div>
     </div>
   </main>
+  <!-- FOOTER -->
   <footer class="footer">
     <a href="https://github.com/TimDementiev" class="footer__copyright">© 2022 Timofey Dementiev</a>
   </footer>

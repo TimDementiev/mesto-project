@@ -12,9 +12,8 @@
     font-size: 14px;
     line-height: 17px;
     align-self: center;
-    /* justify-self:flex-start; */
     grid-area: 2/1/2/span 6;
     padding: 6px 0 0;
-    text-align:center;
+    text-align: center;
   }
 }

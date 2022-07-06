@@ -6,23 +6,17 @@
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
   gap: 20px 17px;
-
 }
 
 @media screen and (max-width: 1279px) {
-  .page {
-
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .page {
-
+  .elements__item-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 767px) {
-  .page {
+  .elements__item-list {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }

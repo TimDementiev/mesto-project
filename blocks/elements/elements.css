@@ -2,5 +2,26 @@
   padding: 51px 0 0;
   margin: auto;
   max-width: calc(100% - 400px);
+  box-sizing: content-box;
+}
 
+@media screen and (max-width: 1279px) {
+  .elements {
+    max-width: calc(100% - 200px);
+    padding: 46px 0 0;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .elements {
+    max-width: calc(100% - 100px);
+    padding: 41px 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .elements {
+    max-width: calc(100% - 38px);
+    padding: 36px 0 0;
+  }
 }
