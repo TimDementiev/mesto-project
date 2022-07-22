@@ -29,6 +29,15 @@
     <!-- ELEMENTS -->
     <section class="elements">
       <ul class="elements__item-list">
+
+        <template id="elements__item">
+          <img class="elements__image" alt="avatar">
+          <div class="elements__info">
+            <h2 class="elements__place"></h2>
+            <button class="elements__like" type="button"></button>
+          </div>
+        </template>
+
         <li class="elements__item">
           <img src="images/Elton.jpg" alt="Фотография с видом на озеро Эльтон" class="elements__image">
           <div class="elements__info">
@@ -36,6 +45,7 @@
             <button class="elements__like" type="button"></button>
           </div>
         </li>
+
         <li class="elements__item">
           <img src="images/Geyser.jpg" alt="Фотография с видом на долину Гейзеров" class="elements__image">
           <div class="elements__info">
@@ -78,20 +88,21 @@
   <footer class="footer">
     <a href="https://github.com/TimDementiev" class="footer__copyright">© 2022 Timofey Dementiev</a>
   </footer>
-      <!-- POPUP -->
-      <div class="popup">  <!-- to remove/add a pop-up, please remove/add a modifier " popup_opened " -->
-        <div class="popup__container">
-          <h2 class="form__heading">Редактировать профиль</h2>
-          <form class="form" name="profile">
-            <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя"
-              value="Жак-Ив Кусто">
-            <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе"
-              value="Исследователь океана">
-            <input type="submit" class="form__button-save" value="Сохранить">
-          </form>
-          <button type="button" class="popup__button-close"></button>
-        </div>
-      </div>
+  <!-- POPUP -->
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="form__heading">Редактировать профиль</h2>
+      <form class="form" name="profile">
+        <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя"
+          value="Жак-Ив Кусто">
+        <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе"
+          value="Исследователь океана">
+        <input type="submit" class="form__button-save" value="Сохранить">
+      </form>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
