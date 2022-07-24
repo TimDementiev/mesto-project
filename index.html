@@ -29,61 +29,6 @@
     <!-- ELEMENTS -->
     <section class="elements">
       <ul class="elements__item-list">
-
-        <template id="elements__template">
-          <div class="elements__item">
-            <img class="elements__image" alt="avatar">
-            <div class="elements__info">
-              <h2 class="elements__title"></h2>
-              <button class="elements__like" type="button"></button>
-            </div>
-          </div>
-        </template>
-<!--
-        <li class="elements__item">
-          <img src="images/Elton.jpg" alt="Фотография с видом на озеро Эльтон" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Озеро Эльтон</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="images/Geyser.jpg" alt="Фотография с видом на долину Гейзеров" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Долина Гейзеров</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="images/Krenitsina.jpg" alt="Фотография с видом на вулкан Креницына" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Вулкан Креницына</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="images/Putorana.jpg" alt="Фотография с видом на плато Путорана" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Плато Путорана</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="images/Kesenoy.jpg" alt="Фотография с видом на озеро Кезеной" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Озеро Кезеной</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="images/Chara.jpg" alt="Фотография с видом на Чарские пески" class="elements__image">
-          <div class="elements__info">
-            <h2 class="elements__title">Чарские пески</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </li>
--->
       </ul>
     </section>
   </main>
@@ -103,6 +48,16 @@
       <button type="button" class="popup__button-close"></button>
     </div>
   </div>
+  <template id="elements__template">
+    <div class="elements__item">
+      <img class="elements__image" alt="avatar">
+      <div class="elements__info">
+        <h2 class="elements__title"></h2>
+        <button class="elements__like" type="button"></button>
+      </div>
+      <button type="button" class="elements__remove"></button>
+    </div>
+  </template>
   <script src="script.js"></script>
 </body>
 
