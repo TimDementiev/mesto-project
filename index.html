@@ -30,18 +30,20 @@
     <section class="elements">
       <ul class="elements__item-list">
 
-        <template id="elements__item">
-          <img class="elements__image" alt="avatar">
-          <div class="elements__info">
-            <h2 class="elements__place"></h2>
-            <button class="elements__like" type="button"></button>
+        <template id="elements__template">
+          <div class="elements__item">
+            <img class="elements__image" alt="avatar">
+            <div class="elements__info">
+              <h2 class="elements__title"></h2>
+              <button class="elements__like" type="button"></button>
+            </div>
           </div>
         </template>
-
+<!--
         <li class="elements__item">
           <img src="images/Elton.jpg" alt="Фотография с видом на озеро Эльтон" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Озеро Эльтон</h2>
+            <h2 class="elements__title">Озеро Эльтон</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
@@ -49,38 +51,39 @@
         <li class="elements__item">
           <img src="images/Geyser.jpg" alt="Фотография с видом на долину Гейзеров" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Долина Гейзеров</h2>
+            <h2 class="elements__title">Долина Гейзеров</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="images/Krenitsina.jpg" alt="Фотография с видом на вулкан Креницына" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Вулкан Креницына</h2>
+            <h2 class="elements__title">Вулкан Креницына</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="images/Putorana.jpg" alt="Фотография с видом на плато Путорана" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Плато Путорана</h2>
+            <h2 class="elements__title">Плато Путорана</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="images/Kesenoy.jpg" alt="Фотография с видом на озеро Кезеной" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Озеро Кезеной</h2>
+            <h2 class="elements__title">Озеро Кезеной</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="images/Chara.jpg" alt="Фотография с видом на Чарские пески" class="elements__image">
           <div class="elements__info">
-            <h2 class="elements__place">Чарские пески</h2>
+            <h2 class="elements__title">Чарские пески</h2>
             <button class="elements__like" type="button"></button>
           </div>
         </li>
+-->
       </ul>
     </section>
   </main>
@@ -91,13 +94,11 @@
   <!-- POPUP -->
   <div class="popup">
     <div class="popup__container">
-      <h2 class="form__heading">Редактировать профиль</h2>
-      <form class="form" name="profile">
-        <input type="text" name="profile-name" id="profile-name" class="form__item" placeholder="Имя"
-          value="">
-        <input type="text" name="profile-bio" id="profile-bio" class="form__item" placeholder="О себе"
-          value="">
-        <input type="submit" class="form__button-save" value="Сохранить">
+      <h2 class="form__heading"></h2>
+      <form class="form" name="form">
+        <input type="text" name="form-first" id="form-first-line" class="form__item" placeholder="" value="">
+        <input type="text" name="form-second" id="form-second-line" class="form__item" placeholder="" value="">
+        <input type="submit" class="form__button-handle" value="">
       </form>
       <button type="button" class="popup__button-close"></button>
     </div>
