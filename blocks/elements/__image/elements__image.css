@@ -7,4 +7,5 @@
   box-sizing: content-box;
   max-width: 100%;
   max-height: fit-content;
+  border: none;
 }

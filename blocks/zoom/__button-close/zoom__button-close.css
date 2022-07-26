@@ -1,0 +1,26 @@
+.zoom__button-close {
+  margin: 0;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: opacity .4s;
+  background: url(../../../images/close-button.svg);
+  border: none;
+  background-size: cover;
+}
+
+.zoom__button-close:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 767px) {
+  .zoom__button-close {
+    top: -36px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+  }
+}

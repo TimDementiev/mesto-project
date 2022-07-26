@@ -9,20 +9,10 @@
   margin: 0;
   padding: 0;
   transition: opacity 0.3s ease-in-out;
-  /* border: blue 1px solid; */
   border: none;
   cursor: pointer;
-  z-index: 2;
 }
 
 .elements__remove:hover {
   opacity: 0.6;
 }
-/*
-@media screen and (max-width: 767px) {
-  .popup__button-close {
-    left: 262px;
-    width: 20px;
-    height: 20px;
-  }
-} */

@@ -20,7 +20,7 @@
     <section class="profile">
       <img src="images/profile-image.png" alt="Аватар владельца аккаунта" class="profile__image">
       <div class="profile__info">
-        <h1 class="profile__name">ЖакИв Кусто</h1>
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button"></button>
         <p class="profile__bio">Исследователь океана</p>
       </div>
@@ -48,9 +48,20 @@
       <button type="button" class="popup__button-close"></button>
     </div>
   </div>
+  <!-- ZOOM -->
+  <div class="zoom">
+    <div class="zoom__container">
+      <!-- <div class="zoom__box"> -->
+        <img class="zoom__image"></img>
+        <p class="zoom__caption"></p>
+        <button type="button" class="zoom__button-close"></button>
+      <!-- </div> -->
+    </div>
+  </div>
+  <!-- TEMPLATE FOR CARDS -->
   <template id="elements__template">
     <div class="elements__item">
-      <img class="elements__image" alt="avatar">
+      <button type="button" class="elements__button-zoom"><img class="elements__image" alt=""></button>
       <div class="elements__info">
         <h2 class="elements__title"></h2>
         <button class="elements__like" type="button"></button>
@@ -58,7 +69,7 @@
       <button type="button" class="elements__remove"></button>
     </div>
   </template>
-  <script src="script.js"></script>
+  <script src="pages/index.js"></script>
 </body>
 
 </html>

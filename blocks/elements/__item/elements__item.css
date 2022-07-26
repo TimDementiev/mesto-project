@@ -6,4 +6,6 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
+  justify-content: space-between;
+
 }

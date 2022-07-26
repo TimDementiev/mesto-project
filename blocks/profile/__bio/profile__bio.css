@@ -5,9 +5,8 @@
   line-height: 22px;
   color: #FFFFFF;
   grid-area: 2 / 1 / 2 / span 3;
-  text-overflow:ellipsis;
-  max-height: 100%;
   text-overflow: ellipsis;
+  max-height: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
