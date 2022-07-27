@@ -36,38 +36,54 @@
   <footer class="footer">
     <a href="https://github.com/TimDementiev" class="footer__copyright">© 2022 Timofey Dementiev</a>
   </footer>
-  <!-- POPUP -->
-  <div class="popup">
+
+  <!-- POPUP PROFILE-->
+  <div class="popup popup_type_profile">
     <div class="popup__container">
-      <h2 class="form__heading">Форма</h2>
+      <h2 class="popup__heading">Редактировать профиль</h2>
       <form class="form" name="form">
-        <input type="text" name="form-first" id="form-first-line" class="form__item" placeholder="" value="">
-        <input type="text" name="form-second" id="form-second-line" class="form__item" placeholder="" value="">
-        <input type="submit" class="form__button-handle" value="">
+        <input type="text" name="form-input-name" id="form-input-name" class="form__item" placeholder="Имя" value="">
+        <input type="text" name="form-input-bio" id="form-input-bio" class="form__item" placeholder="О себе" value="">
+        <input type="submit" class="form__button" value="Сохранить">
       </form>
       <button type="button" class="popup__button-close"></button>
     </div>
   </div>
-  <!-- ZOOM -->
-  <div class="zoom">
-    <div class="zoom__container">
-      <!-- <div class="zoom__box"> -->
-        <img class="zoom__image" src="https://c.wallhere.com/images/60/46/934ed8c43d6d60eb0bbd3873d833-1729747.jpg!d" alt="Изображение">
-        <p class="zoom__caption"></p>
-        <button type="button" class="zoom__button-close"></button>
-      <!-- </div> -->
+
+  <!-- POPUP CARD ADDING-->
+  <div class="popup popup_type_card">
+    <div class="popup__container">
+      <h2 class="popup__heading">Новое место</h2>
+      <form class="form" name="form">
+        <input type="text" name="form-input-place" id="form-input-place" class="form__item" placeholder="Название" value="">
+        <input type="text" name="form-input-link" id="form-input-link" class="form__item" placeholder="Ссылка на картинку"
+          value="">
+        <input type="submit" class="form__button" value="Создать">
+      </form>
+      <button type="button" class="popup__button-close"></button>
     </div>
   </div>
+
+  <!-- POPUP ZOOM -->
+  <div class="popup popup_type_zoom">
+    <div class="popup__image-container">
+      <img class="popup__image" src="https://c.wallhere.com/images/60/46/934ed8c43d6d60eb0bbd3873d833-1729747.jpg!d"
+        alt="Изображение">
+      <p class="popup__image-caption"></p>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+
   <!-- TEMPLATE FOR CARDS -->
   <template id="elements__template">
-    <div class="elements__item">
-      <button type="button" class="elements__button-zoom"><img class="elements__image" alt="Изображение"></button>
+    <li class="elements__item">
+      <img class="elements__image" alt="Изображение">
       <div class="elements__info">
         <h2 class="elements__title"></h2>
         <button class="elements__like" type="button"></button>
       </div>
       <button type="button" class="elements__remove"></button>
-    </div>
+    </li>
   </template>
   <script src="pages/index.js"></script>
 </body>
