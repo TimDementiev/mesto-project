@@ -136,7 +136,6 @@ function createCard(placeImage, placeCaption) {
   const cardImage = cardElement.querySelector(".elements__image");
   cardImage.src = placeImage;
   cardImage.alt = placeCaption;
-  //сardImage.addEventListener("click", openCardZoom);
   cardImage.addEventListener('click', () => handleCardClick(placeImage, placeCaption));
 
   cardElement
