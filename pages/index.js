@@ -60,13 +60,13 @@ const popupZoomCaption = popupZoom.querySelector(".popup__image-caption");
 //Functions:
 
 //Open popup
-function openPopup(i) {
-  i.classList.add("popup_opened");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
 }
 
 //Close popup
-function closePopup(i) {
-  i.classList.remove("popup_opened");
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
 }
 
 //Profile edit button
@@ -78,28 +78,26 @@ function openPopupProfile() {
 
 //Card adding button
 function openPopupCard() {
-  popupCardInputPlace.value = "";
-  popupCardInputLink.value = "";
   openPopup(popupCard);
 }
 
 //Close button
 function closeAnyPopup() {
-  for (let i = 0; i < popupCloseButton.length; i++) {
-    popupCloseButton[i].addEventListener("click", (evt) =>
-      closePopup(evt.target.closest(".popup"))
-    );
-  }
+  popupCloseButton.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+  });
 }
 
 //Popup card create
-function createPopupCard(evt) {
+function createNewCard(evt) {
   evt.preventDefault();
   closePopup(popupCard);
   addCard(
     createCard(popupCardInputLink.value, popupCardInputPlace.value),
     cardList
   );
+  evt.target.reset();
 }
 
 //Popup profile save
@@ -122,12 +120,10 @@ function likeCard(evt) {
 }
 
 //Card zoom
-function openCardZoom(evt) {
-  const zoomedCardImage = evt.target;
-  const zoomedCardCaption = zoomedCardImage.nextElementSibling;
-  popupZoomImage.src = zoomedCardImage.src;
-  popupZoomImage.alt = zoomedCardCaption.textContent;
-  popupZoomCaption.textContent = zoomedCardCaption.textContent;
+function handleCardClick(image,caption) {
+  popupZoomImage.src = image;
+  popupZoomImage.alt = caption;
+  popupZoomCaption.textContent = caption;
   openPopup(popupZoom);
 }
 
@@ -140,7 +136,8 @@ function createCard(placeImage, placeCaption) {
   const cardImage = cardElement.querySelector(".elements__image");
   cardImage.src = placeImage;
   cardImage.alt = placeCaption;
-  cardImage.addEventListener("click", openCardZoom);
+  //сardImage.addEventListener("click", openCardZoom);
+  cardImage.addEventListener('click', () => handleCardClick(placeImage, placeCaption));
 
   cardElement
     .querySelector(".elements__like")
@@ -155,9 +152,7 @@ function createCard(placeImage, placeCaption) {
 
 //Add initial cards
 function addInitialCards(array) {
-  for (let i = 0; i < array.length; i++) {
-    addCard(createCard(array[i].link, array[i].name), cardList);
-  }
+  array.forEach((item) => addCard(createCard(item.link, item.name), cardList));
 }
 
 //New card addition
@@ -170,4 +165,4 @@ closeAnyPopup();
 cardAddButton.addEventListener("click", openPopupCard);
 profileEditButton.addEventListener("click", openPopupProfile);
 popupProfile.addEventListener("submit", savePopupProfile);
-popupCard.addEventListener("submit", createPopupCard);
+popupCard.addEventListener("submit", createNewCard);
