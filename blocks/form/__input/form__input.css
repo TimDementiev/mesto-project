@@ -1,4 +1,4 @@
-.form__item {
+.form__input {
   margin: 30px 36px 0;
   padding: 0 0 9px;
   min-width: calc(100% - 72px);
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .form__item {
+  .form__input {
     margin: 30px 22px 0;
     min-width: calc(100% - 44px);
   }
