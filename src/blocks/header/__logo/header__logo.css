@@ -6,7 +6,7 @@
   min-width: 142px;
   max-width: fit-content;
   transition: opacity 0.2s ease-out;
-  background: url(../../../images/Header-Logo.svg);
+  background: url(./../../../images/Header-Logo.svg);
   background-size: cover;
   cursor: pointer;
 }

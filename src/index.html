@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css" />
-  <link rel="shortcut icon" href="images/profile-image.png" />
+  <link rel="shortcut icon" href="./images/profile-image" />
+
   <title>Место</title>
 </head>
 
@@ -16,21 +16,21 @@
     <a href="#" class="header__logo"></a>
   </header>
   <main>
-    <!-- PROFILE -->
-    <section class="profile">
+  <!-- PROFILE -->
+  <section class="profile">
       <div class="profile__image-container">
-        <img src="images/profile-image.png" alt="Аватар владельца аккаунта" class="profile__image">
+        <img src="./images/profile-image" alt="Аватар владельца аккаунта" class="profile__image">
         <div class="profile__image-overlay"></div>
       </div>
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <h1 class="profile__name">Жак-Ив Кусто1</h1>
         <button class="profile__edit-button" type="button"></button>
         <p class="profile__bio">Исследователь океана</p>
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
-    <!-- ELEMENTS -->
-    <section class="elements">
+  <!-- ELEMENTS -->
+  <section class="elements">
       <ul class="elements__item-list">
       </ul>
     </section>
@@ -46,11 +46,11 @@
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form class="form" name="form" novalidate>
         <input type="text" name="form-input-name" id="form-input-profile-name" class="form__input" placeholder="Имя"
-          value="" minlength="2" maxlength="40" pattern="^[a-zA-Z]+$"
+          value="" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-Я-\s]+$"
           data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
         <span class="form__input-error form-input-profile-name-error"></span>
         <input type="text" name="form-input-bio" id="form-input-profile-bio" class="form__input" placeholder="О себе"
-          value="" minlength="2" maxlength="200" pattern="^[a-zA-Z]+$"
+          value="" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-Я-\s]+$"
           data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
         <span class="form__input-error form-input-profile-bio-error"></span>
         <input type="submit" class="form__submit" value="Сохранить">
@@ -65,7 +65,7 @@
       <h2 class="popup__heading">Новое место</h2>
       <form class="form" name="form" novalidate>
         <input type="text" name="form-input-place" id="form-input-card-place" class="form__input" placeholder="Название"
-          value="" minlength="2" maxlength="30" pattern="^[a-zA-Z\s]+$"
+          value="" minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-Я-\s]+$"
           data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
         <span class="form__input-error form-input-card-place-error"></span>
         <input type="url" name="form-input-link" id="form-input-card-link" class="form__input"
@@ -81,7 +81,8 @@
   <!-- POPUP ZOOM -->
   <div class="popup popup_type_zoom">
     <div class="popup__container popup__container_type_image">
-      <img class="popup__image" src="https://c.wallhere.com/images/60/46/934ed8c43d6d60eb0bbd3873d833-1729747.jpg!d"
+      <img class="popup__image"
+        src="https://c.wallhere.com/images/60/46/934ed8c43d6d60eb0bbd3873d833-1729747.jpg!d"
         alt="Изображение">
       <p class="popup__image-caption"></p>
       <button type="button" class="popup__button-close"></button>
@@ -113,7 +114,6 @@
       <button type="button" class="elements__remove"></button>
     </li>
   </template>
-  <script type="module" src="/src/components/index.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
   height: 32px;
   cursor: pointer;
   transition: opacity .4s;
-  background: url(../../../images/close-button.svg);
+  background: url(./../../../images/close-button.svg);
   border: none;
   background-size: cover;
 }

@@ -4,7 +4,7 @@
   min-height: 50px;
   border: 2px #fff solid;
   border-radius: 2px;
-  background: url(../../../images/add-button.svg) no-repeat;
+  background: url(./../../../images/add-button.svg) no-repeat;
   background-position: center;
   grid-area: 1 / 4 / 1 / 4;
   transition: opacity 0.3s ease-in-out;
