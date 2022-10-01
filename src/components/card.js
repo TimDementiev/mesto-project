@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: "Архыз",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
@@ -24,18 +24,16 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-
 //Card
 const cardList = document.querySelector(".elements__item-list");
 const cardTemplate = document.querySelector("#elements__template").content;
 const profile = document.querySelector(".profile");
 const cardAddButton = profile.querySelector(".profile__add-button");
-
 //Popup card
 const popupCard = document.querySelector(".popup_type_card");
 const popupCardInputPlace = popupCard.querySelector("#form-input-card-place");
 const popupCardInputLink = popupCard.querySelector("#form-input-card-link");
-const popupCardSubmit = popupCard.querySelector(".form__submit-handle");
+import {openPopup, closePopup, openZoomPopup} from './utils.js';
 
 //Popup card create
 function createNewCard(evt) {
@@ -64,8 +62,6 @@ function likeCard(evt) {
   evt.target.classList.toggle("elements__like_active");
 }
 
-
-
 //Create card
 function createCard(placeImage, placeCaption) {
   const cardElement = cardTemplate
@@ -78,20 +74,17 @@ function createCard(placeImage, placeCaption) {
   cardImage.addEventListener("click", () =>
     openZoomPopup(placeImage, placeCaption)
   );
-
   cardElement
     .querySelector(".elements__like")
     .addEventListener("click", likeCard);
-
   cardElement
     .querySelector(".elements__remove")
     .addEventListener("click", removeCard);
-
   return cardElement;
 }
 
 //Add initial cards
-function addInitialCards(array) {
+export function addInitialCards(array) {
   array.forEach((item) => addCard(createCard(item.link, item.name), cardList));
 }
 
@@ -100,6 +93,13 @@ function addCard(cardElement, cardList) {
   cardList.prepend(cardElement);
 }
 
-addInitialCards(initialCards);
-cardAddButton.addEventListener("click", openPopupCard);
-popupCard.addEventListener("submit", createNewCard);
+//Handle open popup
+export function handleOpenPopupCard() {
+  cardAddButton.addEventListener("click", openPopupCard);
+}
+//Handle submit popup
+export function handleSubmitPopupCard() {
+  popupCard.addEventListener("submit", createNewCard);
+}
+
+

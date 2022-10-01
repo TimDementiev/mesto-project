@@ -1,8 +1,8 @@
 .form__input-error {
-  /* margin: 30px 36px 0;
-  padding: 0 0 9px;
+  margin: 0px 36px 0;
+  padding: 4px 0 0px;
   min-width: calc(100% - 72px);
-  height: 27px; */
+  height: 27px;
   border: 0;
   background-color: transparent;
   box-sizing: border-box;
@@ -12,9 +12,10 @@
   color: #FF0000;
 }
 
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .form__input-error {
-    margin: 30px 22px 0;
+    height: 54px;
+    margin: 0px 22px 0;
     min-width: calc(100% - 44px);
   }
-} */
+}

@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./images/profile-image" />
-
+  <link rel="shortcut icon" href="<%=require('./images/profile-image.png')%>" />
   <title>Место</title>
 </head>
 
@@ -16,21 +15,21 @@
     <a href="#" class="header__logo"></a>
   </header>
   <main>
-  <!-- PROFILE -->
-  <section class="profile">
+    <!-- PROFILE -->
+    <section class="profile">
       <div class="profile__image-container">
-        <img src="./images/profile-image" alt="Аватар владельца аккаунта" class="profile__image">
+        <img src="<%=require('./images/profile-image.png')%>" alt="Аватар владельца аккаунта" class="profile__image">
         <div class="profile__image-overlay"></div>
       </div>
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто1</h1>
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button"></button>
         <p class="profile__bio">Исследователь океана</p>
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
-  <!-- ELEMENTS -->
-  <section class="elements">
+    <!-- ELEMENTS -->
+    <section class="elements">
       <ul class="elements__item-list">
       </ul>
     </section>
@@ -81,9 +80,7 @@
   <!-- POPUP ZOOM -->
   <div class="popup popup_type_zoom">
     <div class="popup__container popup__container_type_image">
-      <img class="popup__image"
-        src="https://c.wallhere.com/images/60/46/934ed8c43d6d60eb0bbd3873d833-1729747.jpg!d"
-        alt="Изображение">
+      <img class="popup__image" src="" alt="Изображение">
       <p class="popup__image-caption"></p>
       <button type="button" class="popup__button-close"></button>
     </div>

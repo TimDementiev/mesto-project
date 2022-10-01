@@ -1,4 +1,8 @@
 .form {
   margin: auto;
+  /* display:grid;
+  grid-template-rows: 27px; */
+  display: flex;
+  flex-direction: column;
 }
 
