@@ -1,0 +1,18 @@
+.popup__container_type_image {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: unset;
+  max-width: 75vw;
+  max-height: 75vh;
+  background: unset;
+  box-shadow: unset;
+  border-radius: unset;
+}
+
+/* @media screen and (max-width: 767px) {
+  .popup__container_type_image {
+    width: unset;
+    padding: 0;
+  }
+} */

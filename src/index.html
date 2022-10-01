@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="<%=require('./images/profile-image.png')%>" />
+  <title>Место</title>
+</head>
+
+<body class="page">
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" class="header__logo"></a>
+  </header>
+  <main>
+    <!-- PROFILE -->
+    <section class="profile">
+      <div class="profile__image-container">
+        <img src="<%=require('./images/profile-image.png')%>" alt="Аватар владельца аккаунта" class="profile__image">
+        <div class="profile__image-overlay"></div>
+      </div>
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" type="button"></button>
+        <p class="profile__bio">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <!-- ELEMENTS -->
+    <section class="elements">
+      <ul class="elements__item-list">
+      </ul>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="https://github.com/TimDementiev" class="footer__copyright">© 2022 Timofey Dementiev</a>
+  </footer>
+
+  <!-- POPUP PROFILE-->
+  <div class="popup popup_type_profile">
+    <div class="popup__container">
+      <h2 class="popup__heading">Редактировать профиль</h2>
+      <form class="form" name="form" novalidate>
+        <input type="text" name="form-input-name" id="form-input-profile-name" class="form__input" placeholder="Имя"
+          value="" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-Я-\s]+$"
+          data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
+        <span class="form__input-error form-input-profile-name-error"></span>
+        <input type="text" name="form-input-bio" id="form-input-profile-bio" class="form__input" placeholder="О себе"
+          value="" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-Я-\s]+$"
+          data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
+        <span class="form__input-error form-input-profile-bio-error"></span>
+        <input type="submit" class="form__submit" value="Сохранить">
+      </form>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+
+  <!-- POPUP CARD ADDING-->
+  <div class="popup popup_type_card">
+    <div class="popup__container">
+      <h2 class="popup__heading">Новое место</h2>
+      <form class="form" name="form" novalidate>
+        <input type="text" name="form-input-place" id="form-input-card-place" class="form__input" placeholder="Название"
+          value="" minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-Я-\s]+$"
+          data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы" required>
+        <span class="form__input-error form-input-card-place-error"></span>
+        <input type="url" name="form-input-link" id="form-input-card-link" class="form__input"
+          placeholder="Ссылка на картинку" value="" minlength="2" maxlength="200"
+          data-error-message="Разрешены только латинские буквы" required>
+        <span class="form__input-error form-input-card-link-error"></span>
+        <input type="submit" class="form__submit" value="Создать">
+      </form>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+
+  <!-- POPUP ZOOM -->
+  <div class="popup popup_type_zoom">
+    <div class="popup__container popup__container_type_image">
+      <img class="popup__image" src="" alt="Изображение">
+      <p class="popup__image-caption"></p>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+
+  <!-- POPUP AVATAR-->
+  <div class="popup popup_type_avatar">
+    <div class="popup__container">
+      <h2 class="popup__heading">Обновить аватар</h2>
+      <form class="form" name="form" novalidate>
+        <input type="url" name="form-input-link" id="form-input-avatar-link" class="form__input" placeholder="Ссылка"
+          value="" minlength="2" maxlength="200" data-error-message="Разрешены только латинские буквы" required>
+        <span class="form__input-error form-input-avatar-link-error"></span>
+        <input type="submit" class="form__submit" value="Сохранить">
+      </form>
+      <button type="button" class="popup__button-close"></button>
+    </div>
+  </div>
+
+  <!-- TEMPLATE FOR CARDS -->
+  <template id="elements__template">
+    <li class="elements__item">
+      <img class="elements__image" alt="Изображение">
+      <div class="elements__info">
+        <h2 class="elements__title"></h2>
+        <button class="elements__like" type="button"></button>
+      </div>
+      <button type="button" class="elements__remove"></button>
+    </li>
+  </template>
+</body>
+
+</html>

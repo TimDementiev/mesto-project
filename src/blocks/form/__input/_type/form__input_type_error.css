@@ -1,0 +1,6 @@
+.form__input_type_error {
+  /* display: flex;
+  color: blueviolet;
+  background: rgb(113, 160, 190); */
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+}

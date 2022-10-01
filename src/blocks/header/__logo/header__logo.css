@@ -1,0 +1,24 @@
+.header__logo {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  min-height: 33px;
+  min-width: 142px;
+  max-width: fit-content;
+  transition: opacity 0.2s ease-out;
+  background: url(./../../../images/Header-Logo.svg);
+  background-size: cover;
+  cursor: pointer;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .header__logo {
+    margin: 0 0 0 27px;
+    min-height: 24px;
+    min-width: 104px;
+  }
+}
