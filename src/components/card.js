@@ -25,29 +25,20 @@ export const initialCards = [
   },
 ];
 //Card
-const cardList = document.querySelector(".elements__item-list");
+export const cardsContainer = document.querySelector(".elements__item-list");
 const cardTemplate = document.querySelector("#elements__template").content;
 const profile = document.querySelector(".profile");
-const cardAddButton = profile.querySelector(".profile__add-button");
+export const cardAddButton = profile.querySelector(".profile__add-button");
 //Popup card
-const popupCard = document.querySelector(".popup_type_card");
-const popupCardInputPlace = popupCard.querySelector("#form-input-card-place");
-const popupCardInputLink = popupCard.querySelector("#form-input-card-link");
-import {openPopup, closePopup, openZoomPopup} from './utils.js';
+export const popupCard = document.querySelector(".popup_type_card");
+export const popupCardInputPlace = popupCard.querySelector("#form-input-card-place");
+export const popupCardInputLink = popupCard.querySelector("#form-input-card-link");
+import {openPopup} from './modal.js';
+import {openZoomPopup} from './utils.js';
 
-//Popup card create
-function createNewCard(evt) {
-  evt.preventDefault();
-  closePopup(popupCard);
-  addCard(
-    createCard(popupCardInputLink.value, popupCardInputPlace.value),
-    cardList
-  );
-  evt.target.reset();
-}
 
 //Card adding button
-function openPopupCard() {
+export function openPopupCard() {
   openPopup(popupCard);
 }
 
@@ -63,7 +54,7 @@ function likeCard(evt) {
 }
 
 //Create card
-function createCard(placeImage, placeCaption) {
+export function createCard(placeImage, placeCaption) {
   const cardElement = cardTemplate
     .querySelector(".elements__item")
     .cloneNode(true);
@@ -85,21 +76,14 @@ function createCard(placeImage, placeCaption) {
 
 //Add initial cards
 export function addInitialCards(array) {
-  array.forEach((item) => addCard(createCard(item.link, item.name), cardList));
+  array.forEach((item) => addCard(createCard(item.link, item.name), cardsContainer));
 }
 
 //New card addition
-function addCard(cardElement, cardList) {
-  cardList.prepend(cardElement);
+export function addCard(cardElement, cardsContainer) {
+  cardsContainer.prepend(cardElement);
 }
 
-//Handle open popup
-export function handleOpenPopupCard() {
-  cardAddButton.addEventListener("click", openPopupCard);
-}
-//Handle submit popup
-export function handleSubmitPopupCard() {
-  popupCard.addEventListener("submit", createNewCard);
-}
+
 
 
