@@ -13,13 +13,6 @@ const handleKeydown = function (evt) {
 export function openPopup(targetPopup) {
   targetPopup.classList.add("popup_opened");
   document.addEventListener("keydown", handleKeydown);
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-
-    const buttonElement = formElement.querySelector(".form__submit");
-    toggleButtonState(inputList, buttonElement, "form__submit_inactive");
-  });
 }
 
 //Close popupd
