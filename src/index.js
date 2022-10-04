@@ -22,12 +22,8 @@ import {
   createCard,
   openPopupCard,
 } from "./components/card.js";
-import {
-  openPopup,
-  closePopup,
-  closeAnyPopup
-} from "./components/modal.js";
-import { enableValidation } from "./components/validate.js";
+import { openPopup, closePopup, closeAnyPopup } from "./components/modal.js";
+import { enableValidation, toggleButtonState } from "./components/validate.js";
 
 // Cards
 function createNewCard(evt) {
@@ -38,6 +34,9 @@ function createNewCard(evt) {
     cardsContainer
   );
   evt.target.reset();
+  const inputList = Array.from(evt.target.querySelectorAll(".form__input"));
+  const buttonElement = evt.target.querySelector(".form__submit");
+  toggleButtonState(inputList, buttonElement, "form__submit_inactive");
 }
 function handleSubmitPopupCard() {
   popupCard.addEventListener("submit", createNewCard);
@@ -97,4 +96,3 @@ enableValidation({
   inputErrorClass: "form__input_type_error",
   errorClass: "form__input-error_active",
 });
-
