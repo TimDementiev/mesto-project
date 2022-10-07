@@ -1,29 +1,6 @@
-export const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import { openPopup } from "./modal.js";
+import { openZoomPopup } from "./utils.js";
+import { likeCard, unlikeCard, deleteCard, updatedLikes } from "./api.js";
 //Card
 export const cardsContainer = document.querySelector(".elements__item-list");
 const cardTemplate = document.querySelector("#elements__template").content;
@@ -31,11 +8,12 @@ const profile = document.querySelector(".profile");
 export const cardAddButton = profile.querySelector(".profile__add-button");
 //Popup card
 export const popupCard = document.querySelector(".popup_type_card");
-export const popupCardInputPlace = popupCard.querySelector("#form-input-card-place");
-export const popupCardInputLink = popupCard.querySelector("#form-input-card-link");
-import {openPopup} from './modal.js';
-import {openZoomPopup} from './utils.js';
-
+export const popupCardInputPlace = popupCard.querySelector(
+  "#form-input-card-place"
+);
+export const popupCardInputLink = popupCard.querySelector(
+  "#form-input-card-link"
+);
 
 //Card adding button
 export function openPopupCard() {
@@ -43,47 +21,85 @@ export function openPopupCard() {
 }
 
 //Card remove
-function removeCard(evt) {
-  const removedCard = evt.target.closest(".elements__item");
-  removedCard.remove();
-}
-
-//Card like
-function likeCard(evt) {
-  evt.target.classList.toggle("elements__like_active");
+function removeCard(cardId, removedCard) {
+  return deleteCard(cardId)
+    .then(() => removedCard.remove())
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    });
 }
 
 //Create card
-export function createCard(placeImage, placeCaption) {
+export function createCard(
+  cardImage,
+  cardCaption,
+  likesArray,
+  cardId,
+  cardOwner
+) {
   const cardElement = cardTemplate
     .querySelector(".elements__item")
     .cloneNode(true);
-  cardElement.querySelector(".elements__title").textContent = placeCaption;
-  const cardImage = cardElement.querySelector(".elements__image");
-  cardImage.src = placeImage;
-  cardImage.alt = placeCaption;
-  cardImage.addEventListener("click", () =>
-    openZoomPopup(placeImage, placeCaption)
+  const cardImageItem = cardElement.querySelector(".elements__image");
+  const cardRemoveButton = cardElement.querySelector(".elements__remove");
+  const cardLikeButton = cardElement.querySelector(".elements__like");
+  const cardTitle = cardElement.querySelector(".elements__title");
+  const cardLikes = cardElement.querySelector(".elements__like-counter");
+  const userId = "db4ab1f2d9a410300d7fbed3";
+
+  cardTitle.textContent = cardCaption;
+  cardLikes.textContent = likesArray.length;
+  cardImageItem.src = cardImage;
+  cardImageItem.onload = cardImage;
+  cardImageItem.alt = cardCaption;
+  //Filter only own cards for removing
+  if (cardOwner._id === userId) {
+    cardRemoveButton.classList.add("elements__remove_active");
+    const removedCard = cardRemoveButton.closest(".elements__item");
+    cardRemoveButton.addEventListener("click", () =>
+      removeCard(cardId, removedCard)
+    );
+  }
+  //Set initial status of own likes
+  if (
+    likesArray.some(function (item) {
+      return item._id === userId;
+    })
+  ) {
+    cardLikeButton.classList.add("elements__like_active");
+  }
+
+  cardLikeButton.addEventListener("click", () => {
+    const likedCard = cardLikeButton.classList.contains("elements__like_active")
+      ? unlikeCard(cardId)
+      : likeCard(cardId);
+    likedCard
+      .then(() => {
+        cardLikes.textContent = updatedLikes;
+        cardLikeButton.classList.toggle("elements__like_active");
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      });
+  });
+
+  cardImageItem.addEventListener("click", () =>
+    openZoomPopup(cardImage, cardCaption)
   );
-  cardElement
-    .querySelector(".elements__like")
-    .addEventListener("click", likeCard);
-  cardElement
-    .querySelector(".elements__remove")
-    .addEventListener("click", removeCard);
   return cardElement;
 }
 
 //Add initial cards
 export function addInitialCards(array) {
-  array.forEach((item) => addCard(createCard(item.link, item.name), cardsContainer));
+  array.forEach((item) =>
+    addCard(
+      createCard(item.link, item.name, item.likes, item._id, item.owner),
+      cardsContainer
+    )
+  );
 }
 
 //New card addition
 export function addCard(cardElement, cardsContainer) {
-  cardsContainer.prepend(cardElement);
+  cardsContainer.append(cardElement);
 }
-
-
-
-
