@@ -4,33 +4,47 @@ const popupProfileName = popupProfile.querySelector("#form-input-profile-name");
 const popupProfileBio = popupProfile.querySelector("#form-input-profile-bio");
 const profile = document.querySelector(".profile");
 const profileEditButton = profile.querySelector(".profile__edit-button");
-const profileName = profile.querySelector(".profile__name");
-const profileBio = profile.querySelector(".profile__bio");
+export const profileName = profile.querySelector(".profile__name");
+export const profileBio = profile.querySelector(".profile__bio");
 const popupAvatar = document.querySelector(".popup_type_avatar");
 const popupAvatarLink = popupAvatar.querySelector("#form-input-avatar-link");
-const avatarImage = profile.querySelector(".profile__image");
+export const avatarImage = profile.querySelector(".profile__image");
 const avatarEditButton = profile.querySelector(".profile__image-overlay");
 import {
-  initialCards,
   popupCard,
   cardAddButton,
   popupCardInputLink,
   popupCardInputPlace,
   cardsContainer,
-  addInitialCards,
   addCard,
   createCard,
   openPopupCard,
 } from "./components/card.js";
-import { openPopup, closePopup, closeAnyPopup } from "./components/modal.js";
+import {
+  openPopup,
+  closePopup,
+  closeAnyPopup,
+  renderLoading,
+} from "./components/modal.js";
 import { enableValidation, toggleButtonState } from "./components/validate.js";
+import {
+  getProfileInfo,
+  renderCards,
+  patchProfileInfo,
+  patchProfileAvatar,
+  postNewCard,
+} from "./components/api.js";
+
+//Profile
+getProfileInfo();
 
 // Cards
 function createNewCard(evt) {
   evt.preventDefault();
+  renderLoading(true);
   closePopup(popupCard);
   addCard(
-    createCard(popupCardInputLink.value, popupCardInputPlace.value),
+    postNewCard(popupCardInputPlace.value, popupCardInputLink.value),
     cardsContainer
   );
   evt.target.reset();
@@ -44,7 +58,7 @@ function handleSubmitPopupCard() {
 function handleOpenPopupCard() {
   cardAddButton.addEventListener("click", openPopupCard);
 }
-addInitialCards(initialCards);
+renderCards();
 handleOpenPopupCard();
 handleSubmitPopupCard();
 
@@ -56,9 +70,9 @@ function openProfilePopup() {
 }
 function savePopupProfile(evt) {
   evt.preventDefault();
+  renderLoading(true);
+  patchProfileInfo(popupProfileName.value, popupProfileBio.value);
   closePopup(popupProfile);
-  profileName.textContent = popupProfileName.value;
-  profileBio.textContent = popupProfileBio.value;
 }
 function handleOpenPopupProfile() {
   profileEditButton.addEventListener("click", openProfilePopup);
@@ -72,8 +86,9 @@ function openAvatarPopup() {
 }
 function saveAvatarPopup(evt) {
   evt.preventDefault();
+  renderLoading(true);
+  patchProfileAvatar(popupAvatarLink.value);
   closePopup(popupAvatar);
-  avatarImage.setAttribute("src", popupAvatarLink.value);
 }
 function handleOpenPopupAvatar() {
   avatarEditButton.addEventListener("click", openAvatarPopup);

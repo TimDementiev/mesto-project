@@ -1,7 +1,13 @@
 const popupCloseButton = document.querySelectorAll(".popup__button-close");
 const popups = document.querySelectorAll(".popup");
-import { toggleButtonState } from "./validate.js";
+const popupCard = document.querySelector(".popup_type_card");
+const popupProfile = document.querySelector(".popup_type_profile");
+const popupAvatar = document.querySelector(".popup_type_avatar");
+const popupCardSubmit = popupCard.querySelector(".form__submit");
+const popupProfileSubmit = popupProfile.querySelector(".form__submit");
+const popupAvatarSubmit = popupAvatar.querySelector(".form__submit");
 
+//Keydown handler
 const handleKeydown = function (evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
@@ -35,4 +41,17 @@ export function closeAnyPopup() {
       }
     });
   });
+}
+
+//Warn about loading
+export function renderLoading(isLoading) {
+  if (isLoading) {
+    popupCardSubmit.value = "Сохранение...";
+    popupProfileSubmit.value = "Сохранение...";
+    popupAvatarSubmit.value = "Сохранение...";
+  } else {
+    popupCardSubmit.value = "Создать";
+    popupProfileSubmit.value = "Сохранить";
+    popupAvatarSubmit.value = "Сохранить";
+  }
 }
