@@ -36,22 +36,22 @@ export function closeAnyPopup() {
   popups.forEach((popup) => {
     popup.addEventListener("mousedown", function (evt) {
       if (evt.target.classList.contains("popup")) {
-        const openedPopup = document.querySelector(".popup_opened");
-        closePopup(openedPopup);
+        closePopup(evt.target);
       }
     });
   });
 }
 
 //Warn about loading
-export function renderLoading(isLoading) {
+export function renderLoading(form, isLoading, create) {
+  const submitButton = form.querySelector(".form__submit");
   if (isLoading) {
-    popupCardSubmit.value = "Сохранение...";
-    popupProfileSubmit.value = "Сохранение...";
-    popupAvatarSubmit.value = "Сохранение...";
+    submitButton.value = "Сохранение...";
   } else {
-    popupCardSubmit.value = "Создать";
-    popupProfileSubmit.value = "Сохранить";
-    popupAvatarSubmit.value = "Сохранить";
+    if (create) {
+      submitButton.value = "Создать";
+    } else {
+      submitButton.value = "Сохранить";
+    }
   }
 }

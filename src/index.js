@@ -10,6 +10,7 @@ const popupAvatar = document.querySelector(".popup_type_avatar");
 const popupAvatarLink = popupAvatar.querySelector("#form-input-avatar-link");
 export const avatarImage = profile.querySelector(".profile__image");
 const avatarEditButton = profile.querySelector(".profile__image-overlay");
+export let userId;
 import {
   popupCard,
   cardAddButton,
@@ -18,7 +19,7 @@ import {
   cardsContainer,
   addCard,
   createCard,
-  openPopupCard,
+  addInitialCards,
 } from "./components/card.js";
 import {
   openPopup,
@@ -35,30 +36,61 @@ import {
   postNewCard,
 } from "./components/api.js";
 
-//Profile
-getProfileInfo();
+//Get initial data
+Promise.all([getProfileInfo(), renderCards()])
+  .then(([InitialProfile, InitialCards]) => {
+    userId = InitialProfile._id;
+    profileName.textContent = InitialProfile.name;
+    profileBio.textContent = InitialProfile.about;
+    avatarImage.setAttribute("src", InitialProfile.avatar);
+    addInitialCards(InitialCards);
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
+  });
 
 // Cards
 function createNewCard(evt) {
   evt.preventDefault();
-  renderLoading(true);
-  closePopup(popupCard);
+  renderLoading(evt.target, true, true);
   addCard(
-    postNewCard(popupCardInputPlace.value, popupCardInputLink.value),
+    postNewCard(popupCardInputPlace.value, popupCardInputLink.value)
+      .then((result) => {
+        cardsContainer.prepend(
+          createCard(
+            result.link,
+            result.name,
+            result.likes,
+            result._id,
+            result.owner
+          )
+        );
+        closePopup(popupCard);
+        evt.target.reset();
+        toggleButtonState(
+          Array.from(evt.target.querySelectorAll(".form__input")),
+          evt.target.querySelector(".form__submit"),
+          "form__submit_inactive"
+        );
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        renderLoading(evt.target, false, true);
+      }),
     cardsContainer
   );
-  evt.target.reset();
-  const inputList = Array.from(evt.target.querySelectorAll(".form__input"));
-  const buttonElement = evt.target.querySelector(".form__submit");
-  toggleButtonState(inputList, buttonElement, "form__submit_inactive");
 }
-function handleSubmitPopupCard() {
-  popupCard.addEventListener("submit", createNewCard);
+function openPopupCard() {
+  openPopup(popupCard);
 }
 function handleOpenPopupCard() {
   cardAddButton.addEventListener("click", openPopupCard);
 }
-renderCards();
+function handleSubmitPopupCard() {
+  popupCard.addEventListener("submit", createNewCard);
+}
 handleOpenPopupCard();
 handleSubmitPopupCard();
 
@@ -70,9 +102,19 @@ function openProfilePopup() {
 }
 function savePopupProfile(evt) {
   evt.preventDefault();
-  renderLoading(true);
-  patchProfileInfo(popupProfileName.value, popupProfileBio.value);
-  closePopup(popupProfile);
+  renderLoading(evt.target, true, false);
+  patchProfileInfo(popupProfileName.value, popupProfileBio.value)
+    .then((result) => {
+      profileName.textContent = result.name;
+      profileBio.textContent = result.about;
+      closePopup(popupProfile);
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    })
+    .finally(() => {
+      renderLoading(evt.target, false, false);
+    });
 }
 function handleOpenPopupProfile() {
   profileEditButton.addEventListener("click", openProfilePopup);
@@ -81,14 +123,28 @@ function handleSubmitPopupProfile() {
   popupProfile.addEventListener("submit", savePopupProfile);
 }
 function openAvatarPopup() {
-  popupAvatarLink.value = avatarImage.getAttribute("src");
   openPopup(popupAvatar);
 }
 function saveAvatarPopup(evt) {
   evt.preventDefault();
-  renderLoading(true);
-  patchProfileAvatar(popupAvatarLink.value);
-  closePopup(popupAvatar);
+  renderLoading(evt.target, true, false);
+  patchProfileAvatar(popupAvatarLink.value)
+    .then((result) => {
+      avatarImage.setAttribute("src", result.avatar);
+      closePopup(popupAvatar);
+      evt.target.reset();
+      toggleButtonState(
+        Array.from(evt.target.querySelectorAll(".form__input")),
+        evt.target.querySelector(".form__submit"),
+        "form__submit_inactive"
+      );
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    })
+    .finally(() => {
+      renderLoading(evt.target, false, false);
+    });
 }
 function handleOpenPopupAvatar() {
   avatarEditButton.addEventListener("click", openAvatarPopup);
