@@ -66,21 +66,15 @@ export function createCard(
   cardLikeButton.addEventListener("click", () => {
     const likedCard = cardLikeButton.classList.contains("elements__like_active")
       ? unlikeCard(cardId)
-          .then((result) => {
-            cardLikes.textContent = result.likes.length;
-            cardLikeButton.classList.toggle("elements__like_active");
-          })
-          .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-          })
-      : likeCard(cardId)
-          .then((result) => {
-            cardLikes.textContent = result.likes.length;
-            cardLikeButton.classList.toggle("elements__like_active");
-          })
-          .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-          });
+      : likeCard(cardId);
+    likedCard
+      .then((result) => {
+        cardLikes.textContent = result.likes.length;
+        cardLikeButton.classList.toggle("elements__like_active");
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      });
   });
 
   cardImageItem.addEventListener("click", () =>
