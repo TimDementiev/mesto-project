@@ -1,6 +1,6 @@
-import { openPopup } from "./modal.js";
 import { openZoomPopup } from "./utils.js";
-import { likeCard, unlikeCard, deleteCard, updatedLikes } from "./api.js";
+import { likeCard, unlikeCard, deleteCard } from "./api.js";
+import { userId } from "./../index.js";
 //Card
 export const cardsContainer = document.querySelector(".elements__item-list");
 const cardTemplate = document.querySelector("#elements__template").content;
@@ -15,14 +15,9 @@ export const popupCardInputLink = popupCard.querySelector(
   "#form-input-card-link"
 );
 
-//Card adding button
-export function openPopupCard() {
-  openPopup(popupCard);
-}
-
 //Card remove
 function removeCard(cardId, removedCard) {
-  return deleteCard(cardId)
+  deleteCard(cardId)
     .then(() => removedCard.remove())
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
@@ -45,7 +40,6 @@ export function createCard(
   const cardLikeButton = cardElement.querySelector(".elements__like");
   const cardTitle = cardElement.querySelector(".elements__title");
   const cardLikes = cardElement.querySelector(".elements__like-counter");
-  const userId = "db4ab1f2d9a410300d7fbed3";
 
   cardTitle.textContent = cardCaption;
   cardLikes.textContent = likesArray.length;
@@ -72,15 +66,21 @@ export function createCard(
   cardLikeButton.addEventListener("click", () => {
     const likedCard = cardLikeButton.classList.contains("elements__like_active")
       ? unlikeCard(cardId)
-      : likeCard(cardId);
-    likedCard
-      .then(() => {
-        cardLikes.textContent = updatedLikes;
-        cardLikeButton.classList.toggle("elements__like_active");
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`);
-      });
+          .then((result) => {
+            cardLikes.textContent = result.likes.length;
+            cardLikeButton.classList.toggle("elements__like_active");
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          })
+      : likeCard(cardId)
+          .then((result) => {
+            cardLikes.textContent = result.likes.length;
+            cardLikeButton.classList.toggle("elements__like_active");
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          });
   });
 
   cardImageItem.addEventListener("click", () =>
