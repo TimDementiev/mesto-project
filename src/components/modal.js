@@ -1,10 +1,10 @@
 const popupCloseButton = document.querySelectorAll(".popup__button-close");
 const popups = document.querySelectorAll(".popup");
-const popupCard = document.querySelector(".popup_type_card");
-const popupProfile = document.querySelector(".popup_type_profile");
+const cardPopup = document.querySelector(".popup_type_card");
+const profilePopup = document.querySelector(".popup_type_profile");
 const popupAvatar = document.querySelector(".popup_type_avatar");
-const popupCardSubmit = popupCard.querySelector(".form__submit");
-const popupProfileSubmit = popupProfile.querySelector(".form__submit");
+const cardPopupSubmit = cardPopup.querySelector(".form__submit");
+const profilePopupSubmit = profilePopup.querySelector(".form__submit");
 const popupAvatarSubmit = popupAvatar.querySelector(".form__submit");
 
 //Keydown handler

@@ -7,11 +7,11 @@ const cardTemplate = document.querySelector("#elements__template").content;
 const profile = document.querySelector(".profile");
 export const cardAddButton = profile.querySelector(".profile__add-button");
 //Popup card
-export const popupCard = document.querySelector(".popup_type_card");
-export const popupCardInputPlace = popupCard.querySelector(
+export const cardPopup = document.querySelector(".popup_type_card");
+export const cardPopupInputPlace = cardPopup.querySelector(
   "#form-input-card-place"
 );
-export const popupCardInputLink = popupCard.querySelector(
+export const cardPopupInputLink = cardPopup.querySelector(
   "#form-input-card-link"
 );
 
