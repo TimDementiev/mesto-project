@@ -25,7 +25,7 @@ import {
   addCard,
   createCard,
   addInitialCards,
-} from "../components/card.js";
+} from "../components/Card.js";
 
 import {
   openPopup,
@@ -48,6 +48,10 @@ const profilePopupValidator = new FormValidator(
 profilePopupValidator.enableValidation();
 const cardPopupValidator = new FormValidator(validationSelectors, cardPopup);
 cardPopupValidator.enableValidation();
+
+
+
+
 
 //Get initial data
 Promise.all([getProfileInfo(), renderCards()])

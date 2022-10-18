@@ -1,19 +1,36 @@
+export default class Card {
+  constructor(
+    { data, handleZoom, handleLike, handleDelete },
+    cardSelector,
+    userId,
+    api
+  ) {
+    this._name = data.name;
+    this._link = data.link;
+    this._likes = data.likes;
+    this._cardId = data._id;
+    this._cardOwnerId = data.owner._id;
+    this._handleZoom = handleZoom;
+    this._handleLike = handleLike;
+    this._handleDelete = handleDelete;
+    this._cardSelector = cardSelector;
+    this._userId = userId;
+    this._api = api;
+  }
+
+  _getTemplate() {
+    const cardElement = cardTemplate
+    .querySelector(".elements__item")
+    .cloneNode(true);
+    return cardElement;
+  }
+
+
+
+}
+
 import { openZoomPopup } from "./utils.js";
-import { likeCard, unlikeCard, deleteCard } from "./api.js";
-import { userId } from "./../index.js";
-//Card
-export const cardsContainer = document.querySelector(".elements__item-list");
-const cardTemplate = document.querySelector("#elements__template").content;
-const profile = document.querySelector(".profile");
-export const cardAddButton = profile.querySelector(".profile__add-button");
-//Popup card
-export const cardPopup = document.querySelector(".popup_type_card");
-export const cardPopupInputPlace = cardPopup.querySelector(
-  "#form-input-card-place"
-);
-export const cardPopupInputLink = cardPopup.querySelector(
-  "#form-input-card-link"
-);
+import { userId } from "../pages/index.js";
 
 //Card remove
 function removeCard(cardId, removedCard) {
@@ -62,7 +79,6 @@ export function createCard(
   ) {
     cardLikeButton.classList.add("elements__like_active");
   }
-
   cardLikeButton.addEventListener("click", () => {
     const likedCard = cardLikeButton.classList.contains("elements__like_active")
       ? unlikeCard(cardId)
