@@ -27,12 +27,7 @@ import {
   addInitialCards,
 } from "../components/Card.js";
 
-import {
-  openPopup,
-  closePopup,
-  closeAnyPopup,
-  renderLoading,
-} from "../components/modal.js";
+
 
 import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";

@@ -29,7 +29,7 @@ export default class Card {
 
 }
 
-import { openZoomPopup } from "./utils.js";
+import { openZoomPopup } from "../utils/utils.js";
 import { userId } from "../pages/index.js";
 
 //Card remove
